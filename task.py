@@ -69,10 +69,11 @@ def razbiv2( lst, n):
     if ( length >= n):
         rest = length // n 
         mod = length % n
-        start = 0
+        
         #print(f'{length=} {n=} {rest=} {mod=}')
-        res = [lst[start:(start:=start+rest+(1 if (mod:=mod-1) >=0 else 0))] for i in range(0,n)] 
-            #+ [lst[start:(start:=start+rest)] for i in range(mod, n)]
+        rest1 = rest + 1
+        res = [lst[i * rest1 : i * rest1+rest1] for i in range(0,mod)] \
+            + [lst[mod*rest1+i*rest:mod*rest1+i*rest+rest] for i in range(0, n-mod)]
         return res 
         # 1 4 7 9 
         # 2 5 8 0 
@@ -80,5 +81,14 @@ def razbiv2( lst, n):
 
 lst = ["apple", "banana", "cherry", "orange", "kiwi", "melon", "mango", "pear", "plum"]  
 for i in range(2, len(lst)+1):
-    res = razbiv(lst, i)
+    res = razbiv2(lst, i)
     print(f'{i} -> {len(res)} {res}')      
+
+# 6. Дана строка из имён, в формате "Денис, Олег, Вася, Петя,Дима,Женя". 
+#    Разбейте строку так, чтобы получился список имён. 
+#    Заметьте: после запятой не всегда есть пробел 
+#    (он не должен входить в имена, которые попадут в список)
+def str_to_list(str):
+    return list(map( lambda s: s.strip() , str.split(',') ))
+
+print(str_to_list("Денис, Олег, Вася, Петя,Дима,Женя"))
