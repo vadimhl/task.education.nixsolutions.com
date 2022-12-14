@@ -9,7 +9,7 @@ DROP TABLE IF EXISTS  Users  CASCADE;
 
 CREATE TABLE Users (
     user_id SERIAL PRIMARY KEY,
-    emal VARCHAR(255),
+    email VARCHAR(255),
     password VARCHAR(255),
     first_name VARCHAR(256),
     last_name VARCHAR(255),
