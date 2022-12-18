@@ -1,6 +1,0 @@
-myfunc was called as : 1 2 3 4 5
-$0 is ./test_echo.sh
-$@ is 1 2 3 4 5
-"$@" is 1 2 3 4 5
-$* is 1 2 3 4 5
-"$*" is 1 2 3 4 5
